@@ -2,10 +2,10 @@ package com.example.SpringDateDemo;
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name="product")
+@Entity                         //каждый объект класса - экземпляр сущности
+@Table(name="product")          //связь с  таблицой в БД
 public class Product {
-    @Id
+    @Id                         //указание на первичный ключ таблицы
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
@@ -56,5 +56,15 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
